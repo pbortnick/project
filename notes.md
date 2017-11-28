@@ -16,10 +16,13 @@ Posts:
   Belong to category
 
 Add in later:
+  Nested resource category - posts
   Comments & likes for posts
   User
   Authentication
   Code snippets
+  Sorting: date, likes
 
 Refactoring:
+  Serialize
   Use react/redux
