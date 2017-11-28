@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_for(@post) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,7 +11,16 @@
     </div>
   <% end %>
 
+
+  <label>Post title:</label><br>
+
+  <%= f.hidden_field :category_id %>
+
+  <%= f.text_field :title %><br>
+  <label>Details</label><br>
+  <%= f.text_area :body %><br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

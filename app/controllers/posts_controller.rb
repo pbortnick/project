@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:category_id]
+      @posts = Category.find(params[:category_id]).posts
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1
@@ -14,7 +18,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Post.new(category_id: params[:category_id])
   end
 
   # GET /posts/1/edit
@@ -69,6 +73,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.fetch(:post, {})
+      params.require(:post).permit(:title, :body, :avatar, :category_id)
     end
 end
