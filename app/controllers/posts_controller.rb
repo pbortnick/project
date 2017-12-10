@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_post, only: [:body, :show, :edit, :update, :destroy]
+  before_action :set_category, except: [:body, :show, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -28,15 +28,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    respond_to do |format|
-      if @post.save
-        redirect_back(fallback_location: root_path)
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    @post = @category.posts.build(post_params)
+    if @post.save
+      # Render info I need
+      # comments show view
+      render "posts/details", :layout => false
+    else
+      render "categorys/show"
     end
   end
 
@@ -64,7 +62,16 @@ class PostsController < ApplicationController
     end
   end
 
+  # Used in ajax call for "more"
+  def body
+    render plain: @post.body
+  end
+
   private
+
+  def set_category
+    @category = Category.find(params[:category_id])
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

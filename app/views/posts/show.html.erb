@@ -1,8 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @post.title %></h2>
+<!-- truncate post body to 30 char -->
+<div id="body-<%= @post.id %>"><%= truncate @post.body %></div>
 
-<h1><%= @post.title %></h1>
 
-<h2><%= @post.body %></h2>
-
+<!-- view rest of post body by clicking button (see app/assets/javascripts/post.js)-->
+<button class="more" data-id="<%= @post.id %>">View More</button>
 
 <%= link_to 'Back', categories_path %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $(".more").on('click', function() {
+      var id = $(this).data("id");
+      $.get("/posts/" + id + "/body", function(data) {
+        // Replace text of body-id div
+        $("#body-" + id).text(data);
+      });
+    });
+  });
+</script>
