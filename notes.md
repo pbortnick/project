@@ -26,3 +26,6 @@ Add in later:
 Refactoring:
   Serialize
   Use react/redux
+
+Issues:
+  Assets/javascripts not working

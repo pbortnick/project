@@ -6,9 +6,29 @@
 
 <p>Posts:</p>
 <% @category.posts.each do |post| %>
-  <div><%= post.title %></div>
-  <div><%= post.body %><div>
+  <h2><%= post.title %></h2>
+  <!-- truncate post body to 30 char -->
+  <div id="body-<%= post.id %>"><%= truncate post.body %></div>
+  <!-- view rest of post body by clicking button (see app/assets/javascripts/post.js)-->
+  <button class="more" data-id="<%= post.id %>">View More</button>
+  <div id="image-<%= post.id %>">
+    <% if post.avatar.present? %>
+      <%= image_tag post.avatar.url alt=" "%>
+    <% end %>
+  </div>
 <% end %>
 
 
 <%= link_to 'Back', categories_path %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $(".more").on('click', function() {
+      var id = $(this).data("id");
+      $.get("/posts/" + id + "/body", function(data) {
+        // Replace text of body-id div
+        $("#body-" + id).text(data);
+      });
+    });
+  });
+</script>
