@@ -13,6 +13,7 @@
   <% if post.body.length > 30 %>
     <button class="more" data-id="<%= post.id %>">View More</button>
   <% end %>
+  <!-- if post includes an image, show image -->
   <div id="image-<%= post.id %>">
     <% if post.avatar.present? %>
       <%= image_tag post.avatar.url alt=" "%>
