@@ -4,23 +4,26 @@
 
 <%= link_to "New Post", new_category_post_path(@category) %>
 
-<p>Posts:</p>
-<% @category.posts.each do |post| %>
-  <h2><%= post.title %></h2>
-  <!-- truncate post body to 30 char -->
-  <div id="body-<%= post.id %>"><%= truncate post.body %></div>
-  <!-- if body length is greater than 35 characters, view rest of post body by clicking button (see app/assets/javascripts/post.js)-->
-  <% if post.body.length > 30 %>
-    <button class="more" data-id="<%= post.id %>">View More</button>
-  <% end %>
-  <!-- if post includes an image, show image -->
-  <div id="image-<%= post.id %>">
-    <% if post.avatar.present? %>
-      <%= image_tag post.avatar.url alt=" "%>
+<% if @category.posts.empty? %>
+  <p> There are no posts yet. Please add one! </p>
+<% else %>
+  <p>Posts:</p>
+  <% @category.posts.each do |post| %>
+    <h2><%= post.title %></h2>
+    <!-- truncate post body to 30 char -->
+    <div id="body-<%= post.id %>"><%= truncate post.body %></div>
+    <!-- if body length is greater than 35 characters, view rest of post body by clicking button (see app/assets/javascripts/post.js)-->
+    <% if post.body.length > 30 %>
+      <button class="more" data-id="<%= post.id %>">View More</button>
     <% end %>
-  </div>
+    <!-- if post includes an image, show image -->
+    <div id="image-<%= post.id %>">
+      <% if post.avatar.present? %>
+        <%= image_tag post.avatar.url alt=" "%>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
-
 
 <%= link_to 'Back', categories_path %>
 

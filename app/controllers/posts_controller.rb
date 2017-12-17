@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:body, :show, :edit, :update, :destroy]
+
   before_action :set_category, except: [:body, :show, :destroy]
   # GET /posts
   # GET /posts.json
@@ -14,6 +14,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @post}
+    end
   end
 
   # GET /posts/new
@@ -30,11 +35,7 @@ class PostsController < ApplicationController
   def create
     @post = @category.posts.build(post_params)
     if @post.save
-      # Render info I need
-      # comments show view
-      render "posts/details", :layout => false
-    else
-      render "categorys/show"
+      render "categories/show"
     end
   end
 
@@ -72,13 +73,9 @@ class PostsController < ApplicationController
   def set_category
     @category = Category.find(params[:category_id])
   end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title, :body, :avatar, :category_id)
-    end
+  def post_params
+    params.require(:post).permit(:title, :body, :avatar, :category_id)
+  end
 end
