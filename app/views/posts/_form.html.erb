@@ -12,19 +12,17 @@
   <% end %>
 
 
-  <label>Post title:</label><br>
+  <label>Post title:</label>
 
   <%= f.hidden_field :category_id %>
 
-  <%= f.text_field :title %><br>
-  <label>Details</label><br>
-  <%= f.text_area :body %>
-  <label>Images (optional)</label><br>
-  <%= f.file_field :avatar %>
-  <label>Please Select Category</label><br>
-  <%= collection_select :post, :category_id, Category.all, :id, :name, prompt: true%>
-
-
+  <%= f.text_field :title %><br></br>
+  <label>Details</label>
+  <%= f.text_area :body %><br></br>
+  <label>Images (optional)</label>
+  <%= f.file_field :avatar %><br></br>
+  <label>Please Select Category</label>
+  <%= collection_select :post, :category_id, Category.all, :id, :name, prompt: true%><br></br>
   <div class="actions">
     <%= f.submit %>
   </div>
