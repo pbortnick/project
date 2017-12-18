@@ -21,6 +21,9 @@
   <%= f.text_area :body %>
   <label>Images (optional)</label><br>
   <%= f.file_field :avatar %>
+  <label>Please Select Category</label><br>
+  <%= collection_select :post, :category_id, Category.all, :id, :name, prompt: true%>
+
 
   <div class="actions">
     <%= f.submit %>
