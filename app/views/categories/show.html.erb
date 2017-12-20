@@ -5,7 +5,11 @@
 <%= link_to "New Post", new_category_post_path(@category) %>
 
 <% if @category.posts.empty? %>
-  <p> There are no posts yet. Please add one! </p>
+  <% if signed_in? %>
+    <p> There are no posts yet. Please add one! </p>
+  <% else %>
+    <p> There are no posts yet. Please sign in to add one! </p>
+  <% end %>
 <% else %>
   <p>Posts:</p>
   <% @category.posts.each do |post| %>

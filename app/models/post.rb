@@ -5,5 +5,4 @@ class Post < ApplicationRecord
 
   has_attached_file :avatar
 
-  acts_as_votable
 end
