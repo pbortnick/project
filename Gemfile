@@ -6,6 +6,10 @@ git_source(:github) do |repo_name|
 end
 gem 'active_model_serializers'
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'bcrypt'
+gem 'devise'
 
 gem "paperclip", "~> 5.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -16,7 +16,7 @@ Posts:
   Belong to category
 
 Add in later:
-  Nested resource category - posts
+  X Nested resource category - posts
   Comments & likes for posts
   User
   Authentication
