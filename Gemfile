@@ -10,6 +10,8 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'bcrypt'
 gem 'devise'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 gem "paperclip", "~> 5.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

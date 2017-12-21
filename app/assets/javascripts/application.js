@@ -12,8 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require categories
 //= require posts
+//= require bootstrap-sprockets
+//= require_tree .
