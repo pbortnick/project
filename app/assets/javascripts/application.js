@@ -16,5 +16,4 @@
 //= require jquery_ujs
 //= require categories
 //= require posts
-//= require bootstrap-sprockets
 //= require_tree .

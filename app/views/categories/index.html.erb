@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%=link_to "Add New Post", new_post_path %>
-
-<nav class="navbar navbar-default navbar-fixed-side">
-  <% @categories.each do |category| %>
-    <%= link_to category.title, category %>
-  <% end %>
-</nav>
+<div class="wrapper">
+  <nav id="sidebar">
+    <% @categories.each do |category| %>
+      <li><%= link_to category.title, category %></li>
+    <% end %>
+  </nav>
+</div>
 
 
 <br>
 
-<%= link_to 'New Category', new_category_path %><br>
+<%= link_to 'Add New Category', new_category_path %><br>
+<%=link_to "Add New Post", new_post_path %><br><br>

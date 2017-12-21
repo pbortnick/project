@@ -5,15 +5,15 @@
 <%= link_to "New Post", new_category_post_path(@category) %>
 
 <% if @category.posts.empty? %>
-  <% if signed_in? %>
+  <% if user_signed_in? %>
     <p> There are no posts yet. Please add one! </p>
   <% else %>
     <p> There are no posts yet. Please sign in to add one! </p>
   <% end %>
 <% else %>
-  <p>Posts:</p>
+  <h2>Posts:</h2>
   <% @category.posts.each do |post| %>
-    <h2><%= post.title %></h2>
+    <h3><%= post.title %></h3>
     <!-- truncate post body to 30 char -->
     <div id="body-<%= post.id %>"><%= truncate post.body %></div>
     <!-- if body length is greater than 35 characters, view rest of post body by clicking button (see app/assets/javascripts/post.js)-->
@@ -30,7 +30,7 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', categories_path %><br><br>
 
 
 <!-- javascript code to be moved to assets -->

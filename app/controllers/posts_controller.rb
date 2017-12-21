@@ -71,6 +71,7 @@ class PostsController < ApplicationController
 
   # Used in ajax call for "more"
   def body
+    @post = Post.find(params[:id])
     render plain: @post.body
   end
 
