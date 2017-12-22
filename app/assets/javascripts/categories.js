@@ -18,3 +18,10 @@ $(function() {
     };
   });
 });
+
+$(function() {
+  $(".view").on('click', function() {
+    var id = $(this).data("id");
+    $("#image-" + id).show();
+  });
+});

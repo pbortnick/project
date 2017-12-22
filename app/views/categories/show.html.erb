@@ -21,11 +21,11 @@
       <button class="more" data-id="<%= post.id %>">View More</button>
     <% end %>
     <!-- if post includes an image, show image -->
-    <div id="image-<%= post.id %>">
-      <% if post.avatar.present? %>
-        <%= image_tag post.avatar.url alt=" "%>
-      <% end %>
-    </div>
+    <% if post.avatar.present? %>
+      <button class="view" data-id="<%= post.id %>">View Image</button><br></br>
+      <img id="image-<%= post.id %>" src="<%=post.avatar%>" style="display: none;" height="42" width="42" >
+    <% end %>
+
 
   <% end %>
 <% end %>
