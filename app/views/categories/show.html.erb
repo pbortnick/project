@@ -23,14 +23,11 @@
     <!-- if post includes an image, show image -->
     <% if post.avatar.present? %>
       <button class="view" data-id="<%= post.id %>">View Image</button><br></br>
-      <img id="image-<%= post.id %>" src="<%=post.avatar%>" style="display: none;" height="42" width="42" >
+      <img id="image-<%= post.id %>" src="<%=post.avatar%>" style="display: none;" >
     <% end %>
 
 
   <% end %>
 <% end %>
 
-<%= link_to 'Back', categories_path %><br><br>
-
-
-<!-- javascript code to be moved to assets -->
+<br></br><%= link_to 'Back', categories_path %><br><br>

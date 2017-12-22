@@ -21,7 +21,16 @@ $(function() {
 
 $(function() {
   $(".view").on('click', function() {
+    if ($(this).text() == "View Image") {
+      $(this).text("Hide Image");
+    } else {
+      $(this).text("View Image");
+    };
     var id = $(this).data("id");
-    $("#image-" + id).show();
+    if ($(this).text() == "Hide Image") {
+      $("#image-" + id).show();
+    } else {
+      $("#image-" + id).hide();
+    };
   });
 });
