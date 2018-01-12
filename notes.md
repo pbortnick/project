@@ -1,6 +1,8 @@
 Edit so that you dont have to reload for js functions to work
 
-Add comments schema and add comments to show up when you click on post which leads to post show page
+Add comments schema and add comments to show up when you click on post which leads to post show page -> auto upload comment form onto page with JS
+
+fix back links
 
 
 
