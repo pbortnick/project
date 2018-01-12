@@ -15,7 +15,7 @@
 <% else %>
   <h2>Posts:</h2>
   <% @category.posts.each do |post| %>
-    <h3><%= ink_to("<%=post.title%>", new_user_session_path) %></h3>
+    <h3><%= link_to post.title, category_post_path(@category) %></h3>
     <!-- truncate post body to 30 char -->
     <div id="body-<%= post.id %>"><%= truncate post.body %></div>
     <!-- if body length is greater than 35 characters, view rest of post body by clicking button (see app/assets/javascripts/post.js)-->
