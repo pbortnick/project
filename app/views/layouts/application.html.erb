@@ -18,6 +18,7 @@
   <body>
     <%= yield %>
       <% if user_signed_in? %>
+        <br><br>
         <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
         <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
         <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>

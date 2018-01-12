@@ -5,6 +5,8 @@ class Category < ApplicationRecord
 
   validates_presence_of :title
 
+  validates :title, uniqueness: true
+
   def name
     "#{title}"
   end

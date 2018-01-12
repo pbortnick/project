@@ -11,5 +11,6 @@
 
 <br>
 <% if user_signed_in? %>
-  <%=link_to "Add New Post", new_post_path %><br><br>
+  <%=link_to "Add New Post", new_post_path %><br>
+  <%= link_to 'Add New Category', new_category_path %>
 <% end %>
