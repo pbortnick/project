@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :set_category, only: [:index]
+
   # GET /posts
   # GET /posts.json
   def index
