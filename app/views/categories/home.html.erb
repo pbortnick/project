@@ -1,8 +1,4 @@
-<% if user_signed_in? %>
-
-  <%= render 'index', categories: @categories%>
-
-<% else %>
+<% if !user_signed_in? %>
 
     <p>
       <%= link_to("Sign Up", new_user_registration_path) %>
@@ -10,6 +6,6 @@
       <%= link_to("Sign In", new_user_session_path) %>
     </p>
 
-  <%= render 'index', categories: @categories%>
-
 <% end %>
+
+<%= render 'index', categories: @categories%>
